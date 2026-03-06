@@ -13,8 +13,8 @@ Sixteen LEDs are arranged on a breadboard and controlled through a switch input.
 
 ## Simulation
 
-Created and tested using Autodesk [Tinkercad Circuits](https://www.tinkercad.com)
+Created and tested using Autodesk [Tinkercad Circuits](https://www.tinkercad.com).
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/blob/main/LICENSE)
+This project is licensed under the [MIT License](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/blob/main/LICENSE).
