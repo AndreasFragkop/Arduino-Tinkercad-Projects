@@ -29,7 +29,7 @@ More projects will be added over time.
 
 ## 🛠 Tools Used
 
-- [Tinkercad Circuits](https://www.tinkercad.com/circuits) – Free online Arduino simulator
+- [Tinkercad Circuits](https://www.tinkercad.com/circuits) – Free online Arduino simulator.
 
 ---
 
@@ -41,4 +41,4 @@ Suggestions and improvements are welcome. Feel free to fork the repository and s
 
 ## 📜 License
 
-This project is licensed under the [MIT License](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/blob/main/LICENSE)
+This project is licensed under the [MIT License](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/blob/main/LICENSE).
