@@ -17,4 +17,4 @@ Created and tested using Autodesk [Tinkercad Circuits](https://www.tinkercad.com
 
 ## License
 
-This project is licensed under the **MIT License**.
+This project is licensed under the [MIT License](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/blob/main/LICENSE)
