@@ -1,0 +1,8 @@
+﻿Name,Quantity,Component
+"U1",1," Arduino Uno R3"
+"R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16",16,"220 Ω Resistor"
+"S1",1," Slideswitch"
+"D9, D12, D4, D8",4,"Green LED"
+"D10, D2, D6, D13",4,"Red LED"
+"D11, D14, D3, D7",4,"Orange LED"
+"D15, D1, D5, D16",4,"Blue LED"
