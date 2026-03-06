@@ -13,7 +13,7 @@ Sixteen LEDs are arranged on a breadboard and controlled through a switch input.
 
 ## Simulation
 
-Created and tested using Autodesk Tinkercad Circuits: https://www.tinkercad.com
+Created and tested using Autodesk [Tinkercad Circuits](https://www.tinkercad.com)
 
 ## License
 
