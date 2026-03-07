@@ -1,4 +1,4 @@
-# Arduino 3-LED Control System
+# 3-LED Control System
 
 ## Overview
 
