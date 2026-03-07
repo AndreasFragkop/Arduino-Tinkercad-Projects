@@ -30,7 +30,6 @@ The program uses one digital pin as an output to control the LED and another dig
 ### Pin Setup
 
 The LED is connected to digital pin **D5**, which sends the signal from the Arduino to turn the LED on or off.
-
 The push button is connected to digital pin **D2**, which sends its signal to the Arduino when the button is pressed.
 
 ### Behaviour
