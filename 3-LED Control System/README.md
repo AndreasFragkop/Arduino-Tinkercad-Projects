@@ -38,9 +38,7 @@ The LEDs are connected to three digital pins on the Arduino. The **red LED is co
 
 The program runs a continuous traffic light cycle:
 
-- The **red LED turns on for 5 seconds**, while the other LEDs remain off.
-- After this, the **green LED turns on for 5 seconds**, indicating it is safe to go.
-- Finally, the **orange LED turns on for 2 seconds**, signalling that the light will soon change.
+The **red LED turns on for 5 seconds**, while the other LEDs remain off. After this, the **green LED turns on for 5 seconds**, indicating it is safe to go. Finally, the **orange LED turns on for 2 seconds**, signalling that the light will soon change.
 
 ### Loop Cycle
 
