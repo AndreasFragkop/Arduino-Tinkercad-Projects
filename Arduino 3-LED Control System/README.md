@@ -13,8 +13,8 @@ This project implements a simple traffic light controller using an Arduino Uno a
 
 ## Simulation
 
-Created and tested using **Autodesk Tinkercad Circuits**.
+Created and tested using Autodesk [Tinkercad Circuits](https://www.tinkercad.com/circuits).
 
 ## License
 
-This project is licensed under the **MIT License**.
+This project is licensed under the [MIT License](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/blob/main/LICENSE).
