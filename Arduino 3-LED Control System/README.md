@@ -1,35 +1,20 @@
-# Arduino 3-LED Control System
+# Arduino Traffic Light Controller
 
-This project controls three LEDs (red, orange, green) in a repeating traffic-light style sequence.
+## Overview
 
-## LED Sequence
+This project implements a simple traffic light controller using an Arduino Uno and three LEDs (red, orange, and green). The LEDs are arranged on a breadboard and controlled through Arduino digital output pins. The system simulates the behavior of a real traffic signal by lighting the LEDs in a timed sequence.
 
-1. Red ON for 5 seconds
-2. Green ON for 5 seconds
-3. Orange ON for 2 seconds
-4. Repeat
+## Functionality
 
-## Pin Configuration
+* The **Red LED** turns on to indicate stop.
+* After a delay, the **Green LED** turns on to indicate go.
+* The **Orange LED** then turns on to signal caution before the cycle repeats.
+* The sequence runs continuously to simulate a basic traffic light system.
 
-- Red LED: pin 11
-- Orange LED: pin 10
-- Green LED: pin 9
+## Simulation
 
-## Components Needed
+Created and tested using **Autodesk Tinkercad Circuits**.
 
-- 1x Arduino Uno (or compatible board)
-- 3x LEDs (red, orange/yellow, green)
-- 3x 220 ohm resistors
-- Breadboard
-- Jumper wires
+## License
 
-## Wiring
-
-- Connect Arduino pin 11 to the red LED anode (+) through a 220 ohm resistor.
-- Connect Arduino pin 10 to the orange LED anode (+) through a 220 ohm resistor.
-- Connect Arduino pin 9 to the green LED anode (+) through a 220 ohm resistor.
-- Connect all LED cathodes (-) to GND.
-
-## File
-
-- `Arduino 3-LED Control System.ino`
+This project is licensed under the **MIT License**.
