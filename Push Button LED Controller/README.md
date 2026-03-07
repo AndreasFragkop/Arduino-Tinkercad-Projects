@@ -34,9 +34,7 @@ The push button is connected to digital pin **D2**, which sends its signal to th
 
 ### Behaviour
 
-- When the button is pressed, the Arduino reads a HIGH signal from the button pin.
-- The Arduino then sends a HIGH signal to the LED pin, causing the LED to turn on.
-- When the button is released, the Arduino reads a LOW signal and turns the LED off.
+When the button is pressed, the Arduino reads a HIGH signal from the button pin. The Arduino then sends a HIGH signal to the LED pin, causing the LED to turn on. When the button is released, the Arduino reads a LOW signal and turns the LED off.
 
 ### Idle State
 
