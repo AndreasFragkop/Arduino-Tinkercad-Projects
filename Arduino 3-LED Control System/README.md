@@ -1,4 +1,4 @@
-# Arduino Traffic Light Controller
+# Arduino 3-LED Control System
 
 ## Overview
 
