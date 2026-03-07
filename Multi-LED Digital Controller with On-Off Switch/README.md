@@ -16,17 +16,12 @@ A push button connected to **pin 10** activates the LED sequence. The button use
 
 ### Pin Setup
 
-| Arduino Pin | LEDs Controlled |
-|-------------|----------------|
-| D2 | LED 1 & LED 9 |
-| D3 | LED 2 & LED 10 |
-| D4 | LED 3 & LED 11 |
-| D5 | LED 4 & LED 12 |
-| D6 | LED 5 & LED 13 |
-| D7 | LED 6 & LED 14 |
-| D8 | LED 7 & LED 15 |
-| D9 | LED 8 & LED 16 |
-| D10 | Push Button |
+## Pin Setup
+
+The Arduino uses digital pins **D2 to D9** to control the LEDs. Each of these pins is connected to two LEDs in the circuit, meaning the same signal from the Arduino powers a pair of LEDs. This results in a total of **16 LEDs being controlled by 8 output pins**.
+
+For example, pin **D2** controls LED 1 and LED 9, pin **D3** controls LED 2 and LED 10, and this pattern continues up to pin **D9**, which controls LED 8 and LED 16.
+The **push button is connected to pin D10**, which is configured as an input using the Arduino’s internal pull-up resistor.
 
 Each LED is connected through a **220Ω resistor** to limit current.
 
