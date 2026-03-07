@@ -12,28 +12,26 @@ This Arduino program controls a LED scanner effect using a push button.
 The program uses **8 Arduino output pins** stored in an array to control the LEDs.  
 Although the circuit contains **16 LEDs**, they are arranged in pairs so that **each Arduino pin controls two LEDs simultaneously**.
 
-A push button connected to **pin 10** activates the LED sequence. The button uses the **internal pull-up resistor**, meaning the pin reads **LOW when the button is pressed**.
+A switch connected to **pin 10** activates the LED sequence. The button uses the **internal pull-up resistor**, meaning the pin reads **LOW when the switch is pressed**.
 
 ### Pin Setup
-
-## Pin Setup
 
 The Arduino uses digital pins **D2 to D9** to control the LEDs. Each of these pins is connected to two LEDs in the circuit, meaning the same signal from the Arduino powers a pair of LEDs. This results in a total of **16 LEDs being controlled by 8 output pins**.
 
 For example, pin **D2** controls LED 1 and LED 9, pin **D3** controls LED 2 and LED 10, and this pattern continues up to pin **D9**, which controls LED 8 and LED 16.
-The **push button is connected to pin D10**, which is configured as an input using the Arduino’s internal pull-up resistor.
+The **switch is connected to pin D10**, which is configured as an input using the Arduino’s internal pull-up resistor.
 
 Each LED is connected through a **220Ω resistor** to limit current.
 
 ### Behaviour
 
-- When the **button is pressed**, the LEDs light up one at a time from the first LED pair to the last.
+- When the **switch is pressed**, the LEDs light up one at a time from the first LED pair to the last.
 - The sequence then **reverses direction**, creating a **back-and-forth scanner effect**.
 - Each step lasts **200 ms**.
 
 ### Idle State
 
-When the **button is not pressed**, all LEDs remain **off**.
+When the **switch is not pressed**, all LEDs remain **off**.
 
 ## Functionality
 
