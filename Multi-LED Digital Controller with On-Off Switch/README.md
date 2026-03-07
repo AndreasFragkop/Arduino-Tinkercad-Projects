@@ -5,7 +5,7 @@
 This project implements a multi-LED digital controller using an Arduino Uno.
 Sixteen LEDs are arranged on a breadboard and controlled through a switch input. When the switch is activated, the LEDs perform a scanning sequence from left to right and then reverse from right to left, creating a continuous back-and-forth lighting effect.
 
-# Code Explanation
+### Code Explanation
 
 This Arduino program controls a LED scanner effect using a push button.
 
