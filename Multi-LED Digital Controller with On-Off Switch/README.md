@@ -7,12 +7,12 @@ Sixteen LEDs are arranged on a breadboard and controlled through a switch input.
 
 ## Code Explanation
 
-This Arduino program controls a LED scanner effect using a push button.
+This Arduino program controls a LED scanner effect using a switch.
 
 The program uses **8 Arduino output pins** stored in an array to control the LEDs.  
 Although the circuit contains **16 LEDs**, they are arranged in pairs so that **each Arduino pin controls two LEDs simultaneously**.
 
-A switch connected to **pin 10** activates the LED sequence. The button uses the **internal pull-up resistor**, meaning the pin reads **LOW when the switch is pressed**.
+A switch connected to **pin 10** activates the LED sequence. The switch uses the **internal pull-up resistor**, meaning the pin reads **LOW when the switch is pressed**.
 
 ### Pin Setup
 
