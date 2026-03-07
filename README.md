@@ -24,6 +24,7 @@ This repository contains multiple Arduino projects, each organized in its own fo
 | Multi-LED Digital Controller with On-Off Switch | A circuit that controls multiple LEDs with a switch to produce a back-and-forth scanning light effect. |
 | Solar Tracking System Using LDR Sensors | A simple system that uses LDR sensors to detect and follow the strongest light source. |
 | Arduino Traffic Light Controller | A simple traffic light simulation using red, orange, and green LEDs. |
+
 More projects will be added over time.
 
 ---
