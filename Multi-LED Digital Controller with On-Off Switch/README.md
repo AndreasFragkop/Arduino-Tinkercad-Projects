@@ -5,6 +5,41 @@
 This project implements a multi-LED digital controller using an Arduino Uno.
 Sixteen LEDs are arranged on a breadboard and controlled through a switch input. When the switch is activated, the LEDs perform a scanning sequence from left to right and then reverse from right to left, creating a continuous back-and-forth lighting effect.
 
+## Code Explanation
+
+This Arduino program controls a LED scanner effect using a push button.
+
+The program uses **8 Arduino output pins** stored in an array to control the LEDs.  
+Although the circuit contains **16 LEDs**, they are arranged in pairs so that **each Arduino pin controls two LEDs simultaneously**.
+
+A push button connected to **pin 10** activates the LED sequence. The button uses the **internal pull-up resistor**, meaning the pin reads **LOW when the button is pressed**.
+
+## Pin Setup
+
+| Arduino Pin | LEDs Controlled |
+|-------------|----------------|
+| D2 | LED 1 & LED 9 |
+| D3 | LED 2 & LED 10 |
+| D4 | LED 3 & LED 11 |
+| D5 | LED 4 & LED 12 |
+| D6 | LED 5 & LED 13 |
+| D7 | LED 6 & LED 14 |
+| D8 | LED 7 & LED 15 |
+| D9 | LED 8 & LED 16 |
+| D10 | Push Button |
+
+Each LED is connected through a **220Ω resistor** to limit current.
+
+## Behaviour
+
+- When the **button is pressed**, the LEDs light up one at a time from the first LED pair to the last.
+- The sequence then **reverses direction**, creating a **back-and-forth scanner effect**.
+- Each step lasts **200 ms**.
+
+## Idle State
+
+When the **button is not pressed**, all LEDs remain **off**.
+
 ## Functionality
 
 * When the switch is **ON**, the LEDs light sequentially from left to right.
