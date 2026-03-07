@@ -21,8 +21,9 @@ This repository contains multiple Arduino projects, each organized in its own fo
 
 | Project | Description |
 |-------|-------------|
-| Arduino 3-LED Control System | A simple traffic light simulation using red, orange, and green LEDs. |
+| 3-LED Control System | A simple traffic light simulation using red, orange, and green LEDs. |
 | Multi-LED Digital Controller with On-Off Switch | A circuit that controls multiple LEDs with a switch to produce a back-and-forth scanning light effect. |
+| Push Button LED Controller | A simple circuit where a push button controls the turning on and off of an LED. |
 | Solar Tracking System Using LDR Sensors | A simple system that uses LDR sensors to detect and follow the strongest light source. |
 
 More projects will be added over time.
