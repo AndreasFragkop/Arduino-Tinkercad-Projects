@@ -42,9 +42,7 @@ Each LED is connected through a **220Ω resistor** to limit current.
 
 ### Behaviour
 
-- When the **switch is pressed**, the LEDs light up one at a time from the first LED pair to the last.
-- The sequence then **reverses direction**, creating a **back-and-forth scanner effect**.
-- Each step lasts **200 ms**.
+When the **switch is pressed**, the LEDs light up one at a time from the first LED pair to the last. The sequence then **reverses direction**, creating a **back-and-forth scanner effect**. Each step lasts **200 ms**.
 
 ### Idle State
 
