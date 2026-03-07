@@ -32,8 +32,6 @@ The program uses **one digital pin to control the servo motor** and **two analog
 The **servo motor is connected to digital pin D3**, which sends the control signal from the Arduino to move the servo.  
 Two sensors are used to provide input to the system. The **left sensor is connected to analog pin A0**, and the **right sensor is connected to analog pin A1**. These sensors send their analog readings to the Arduino so it can compare the values and determine how the servo should move.
 
-The servo motor receives a control signal from **pin 3**, while the two sensors send their analog readings to **pins A0 and A1**.
-
 ### Behaviour
 
 The servo motor starts at a **center position of 90 degrees**.
