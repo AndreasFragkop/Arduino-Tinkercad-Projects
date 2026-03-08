@@ -13,7 +13,7 @@ This repository contains multiple Arduino projects, each organized in its own fo
 - Arduino code (.ino)
 - Circuit image (.png)
 - Components list (.csv)
-- Description (.me)
+- Description (.md)
 
 ---
 
