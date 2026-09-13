@@ -1,5 +1,7 @@
 # Push Button LED Controller
 
+![Difficulty: Beginner](https://img.shields.io/badge/Difficulty-Beginner-brightgreen)
+
 ## Overview
 This project implements a simple LED control system using an Arduino Uno, a push button, and resistors. The system allows a user to control the state of an LED using a button input. When the button is pressed, the LED turns on, and when the button is released, the LED turns off.
 

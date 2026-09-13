@@ -1,5 +1,7 @@
 # Solar Tracking System Using LDR Sensors
 
+![Difficulty: Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-orange)
+
 ## Overview
 
 This project implements a solar tracking system using an Arduino Uno, two LDR sensors, and a servo motor. The system detects the direction of the strongest light source and automatically adjusts the servo motor to follow it.

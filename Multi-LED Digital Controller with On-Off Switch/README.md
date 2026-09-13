@@ -1,5 +1,7 @@
 # Multi-LED Digital Controller with On-Off Switch
 
+![Difficulty: Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-orange)
+
 ## Overview
 
 This project implements a multi-LED digital controller using an Arduino Uno.

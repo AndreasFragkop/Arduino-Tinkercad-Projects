@@ -21,7 +21,7 @@ This repository contains multiple Arduino projects, each organized in its own fo
 ## 📂 Project List
 
 | Project | Description |
-|-------|-------------|
+|---------|-------------|
 | 3-LED Control System | A simple traffic light simulation using red, orange, and green LEDs. |
 | Arduino 16x2 LCD Interface | A scrolling text display that shows “Loading Data” on a 16x2 LCD, with a potentiometer to adjust the contrast. |
 | Arduino Blink LED Circuit | A simple circuit that turns a red LED on and off at one-second intervals to create a steady blinking effect. |

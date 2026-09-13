@@ -1,5 +1,7 @@
 # 3-LED Control System
 
+![Difficulty: Beginner](https://img.shields.io/badge/Difficulty-Beginner-brightgreen)
+
 ## Overview
 
 This project implements a simple traffic light controller using an Arduino Uno and three LEDs (red, orange, and green). The LEDs are arranged on a breadboard and controlled through Arduino digital output pins. The system simulates the behavior of a real traffic signal by lighting the LEDs in a timed sequence.

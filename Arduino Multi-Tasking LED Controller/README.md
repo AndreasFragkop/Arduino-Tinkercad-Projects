@@ -1,5 +1,7 @@
 # Arduino Multi-Tasking LED Controller
 
+![Difficulty: Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-orange)
+
 ## Overview
 
 This project implements a simple LED control system using an Arduino Uno, two LEDs, a push button, and resistors. The blue LED blinks automatically, while the green LED turns on when the button is pressed and off when it is released. The program uses the `millis()` function to control the blinking without pausing button input, allowing both tasks to run independently.
