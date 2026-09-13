@@ -8,11 +8,11 @@ Hello everyone, in this repository I store all the Arduino projects that I creat
 
 This repository contains multiple Arduino projects, each organized in its own folder with the required files and project details.
 
-- Schematic view (.pdf)
-- Arduino code (.ino)
 - Circuit image (.png)
+- Arduino code (.ino)
 - Components list (.csv)
 - Description (.md)
+- Schematic view (.pdf)
 
 ---
 
@@ -21,6 +21,7 @@ This repository contains multiple Arduino projects, each organized in its own fo
 | Project | Description |
 |-------|-------------|
 | 3-LED Control System | A simple traffic light simulation using red, orange, and green LEDs. |
+| Arduino 16x2 LCD Interface | A scrolling text display that shows “Loading Data” on a 16x2 LCD, with a potentiometer to adjust the contrast. |
 | Arduino Piano | A small digital piano built with Arduino where buttons act as keys to play musical notes. |
 | Arduino Traffic Light Simulator | A traffic light simulation that cycles through red, green, and yellow LEDs at timed intervals. |
 | Multi-LED Digital Controller with On-Off Switch | A circuit that controls multiple LEDs with a switch to produce a back-and-forth scanning light effect. |
