@@ -2,6 +2,8 @@
 
 Hello everyone, in this repository I store all the Arduino projects that I create and simulate using [Tinkercad Circuits](https://www.tinkercad.com/circuits). These projects are designed to explore Arduino programming, electronics, and circuit design. This repository is aimed at students, hobbyists, and anyone who wants to learn Arduino through practical simulation projects.
 
+![Arduino Uno](Logo.Webp)
+
 ---
 
 ## 🔧 What’s Inside
