@@ -23,6 +23,7 @@ This repository contains multiple Arduino projects, each organized in its own fo
 | 3-LED Control System | A simple traffic light simulation using red, orange, and green LEDs. |
 | Arduino 16x2 LCD Interface | A scrolling text display that shows “Loading Data” on a 16x2 LCD, with a potentiometer to adjust the contrast. |
 | Arduino Blink LED Circuit | A simple circuit that turns a red LED on and off at one-second intervals to create a steady blinking effect. |
+| Arduino Multi-Tasking LED Controller | A circuit that blinks a blue LED automatically while a push button independently controls a green LED. |
 | Arduino Piano | A small digital piano built with Arduino where buttons act as keys to play musical notes. |
 | Arduino Traffic Light Simulator | A traffic light simulation that cycles through red, green, and yellow LEDs at timed intervals. |
 | Multi-LED Digital Controller with On-Off Switch | A circuit that controls multiple LEDs with a switch to produce a back-and-forth scanning light effect. |

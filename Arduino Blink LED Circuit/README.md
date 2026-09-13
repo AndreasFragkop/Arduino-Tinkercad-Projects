@@ -32,7 +32,7 @@ When the system starts, the Arduino sends a HIGH signal to the LED pin, turning 
 
 ## Simulation
 
-To be added: the Tinkercad simulation details.
+Created and tested using Autodesk [Tinkercad Circuits](https://www.tinkercad.com/circuits).
 
 ## License
 

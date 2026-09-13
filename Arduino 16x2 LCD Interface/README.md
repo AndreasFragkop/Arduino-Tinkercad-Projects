@@ -37,7 +37,7 @@ When the system starts, the LCD is briefly blank before the message “Loading D
 
 ## Simulation
 
-To be added: the Tinkercad simulation details.
+Created and tested using Autodesk [Tinkercad Circuits](https://www.tinkercad.com/circuits).
 
 ## License
 

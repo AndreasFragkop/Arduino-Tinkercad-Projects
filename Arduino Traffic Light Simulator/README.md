@@ -38,7 +38,7 @@ When the system starts, the Arduino turns on the red LED for **5 seconds**, whil
 
 ## Simulation
 
-To be added: the Tinkercad simulation link and circuit screenshots.
+Created and tested using Autodesk [Tinkercad Circuits](https://www.tinkercad.com/circuits).
 
 ## License
 
