@@ -6,15 +6,15 @@ This project implements a simple traffic light control system using an Arduino U
 
 ## Components Used
 
-| Component | Quantity | Description |
-|-----------|----------|-------------|
-| Arduino Uno R3 | 1 | Runs the program and controls the traffic lights |
-| Small Breadboard | 1 | Holds the components and their circuit connections |
-| Red LED | 1 | Represents the stop signal |
-| Green LED | 1 | Represents the go signal |
-| Yellow LED | 1 | Represents the caution signal |
-| 220 Ω Resistor | 3 | Limits the current through each LED to protect it |
-| Jumper Wires | As needed | Connect the Arduino, breadboard, and LEDs |
+| Component | Description |
+|-----------|-------------|
+| Arduino Uno | The microcontroller that runs the program and controls the LEDs |
+| Red LED | Represents the red traffic light signal |
+| Green LED | Represents the green traffic light signal |
+| Yellow LED | Represents the yellow traffic light signal |
+| 3 × 220Ω Resistors | Limit the current flowing through the LEDs to protect them |
+| Breadboard / PCB | Used to assemble and hold the circuit components |
+| Jumper Wires | Used to connect the Arduino to the LEDs and resistors |
 
 ## Functionality
 
