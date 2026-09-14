@@ -1,0 +1,7 @@
+﻿Name,Quantity,Component
+"U1",1," Arduino Uno R3"
+"Rpot1",1,"10 kΩ Potentiometer"
+"R1",1,"220 Ω Resistor"
+"1",1," Breadboard Small"
+"U2",1," Temperature Sensor [TMP36]"
+"U3",1," LCD 16 x 2"
