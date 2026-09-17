@@ -14,9 +14,9 @@ Sixteen LEDs are arranged on a breadboard and controlled through a switch input.
 | Arduino Uno | The microcontroller that runs the program and controls the LEDs |
 | 16 × LEDs (Red, Green, Blue, Orange) | Used to create the LED scanner light effect |
 | 16 × 220Ω Resistors | Limit the current flowing through each LED to protect the LEDs and Arduino |
-| Push Button (S1) | Used to activate the LED scanning sequence |
+| Slide Switch (S1) | Used to activate the LED scanning sequence |
 | Breadboard / PCB | Used to assemble and hold the circuit components |
-| Jumper Wires | Used to connect the Arduino pins to the LEDs, resistors, and button |
+| Jumper Wires | Used to connect the Arduino pins to the LEDs, resistors, and slide switch |
 
 ## Functionality
 
@@ -31,7 +31,7 @@ This Arduino program controls a LED scanner effect using a switch.
 The program uses **8 Arduino output pins** stored in an array to control the LEDs.  
 Although the circuit contains **16 LEDs**, they are arranged in pairs so that **each Arduino pin controls two LEDs simultaneously**.
 
-A switch connected to **pin 10** activates the LED sequence. The switch uses the **internal pull-up resistor**, meaning the pin reads **LOW when the switch is pressed**.
+A switch connected to **pin 10** activates the LED sequence. The switch uses the **internal pull-up resistor**, meaning the pin reads **LOW when the slide switch is activated**.
 
 ### Pin Setup
 
@@ -42,18 +42,22 @@ The **switch is connected to pin D10**, which is configured as an input using th
 
 Each LED is connected through a **220Ω resistor** to limit current.
 
+### Physical Hardware Note
+
+The Tinkercad circuit connects two LEDs to each Arduino output pin. For a physical build, use transistor driver stages or recalculate the resistor values so the combined current from each pair remains within the Arduino pin current rating.
+
 ### Behaviour
 
-When the **switch is pressed**, the LEDs light up one at a time from the first LED pair to the last. The sequence then **reverses direction**, creating a **back-and-forth scanner effect**. Each step lasts **200 ms**.
+When the **slide switch is activated**, the LEDs light up one at a time from the first LED pair to the last. The sequence then **reverses direction**, creating a **back-and-forth scanner effect**. Each step lasts **200 ms**.
 
 ### Idle State
 
-When the **switch is not pressed**, all LEDs remain **off**.
+When the **slide switch is deactivated**, all LEDs remain **off**.
 
 ## Simulation
 
-Created and tested using Autodesk [Tinkercad Circuits](https://www.tinkercad.com).
+Created and tested using Autodesk [Tinkercad Circuits](https://www.tinkercad.com/circuits).
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/blob/main/LICENSE).
+This project is licensed under the [MIT License](../LICENSE).

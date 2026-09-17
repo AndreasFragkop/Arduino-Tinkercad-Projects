@@ -12,8 +12,8 @@ This project implements a solar tracking system using an Arduino Uno, two LDR se
 |-----------|-------------|
 | Arduino Uno | The microcontroller that runs the program and controls the circuit |
 | Servo Motor | Used to create controlled rotational movement based on the Arduino signal |
-| 2 × 1kΩ Resistors | Used to limit current and stabilize the signal in the circuit |
-| 2 × Potentiometers (Variable Resistors) | Allow adjustment of input values that control the servo behaviour |
+| 2 × 1kΩ Resistors | Form voltage dividers with the photoresistors so the Arduino can measure light levels |
+| 2 × Photoresistors | Detect light intensity from the left and right sides of the tracker |
 | Breadboard / PCB | Used to assemble and hold the circuit components |
 | Jumper Wires | Used to connect the Arduino, servo, and other components together |
 
@@ -57,4 +57,4 @@ Created and tested using Autodesk [Tinkercad Circuits](https://www.tinkercad.com
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/blob/main/LICENSE).
+This project is licensed under the [MIT License](../LICENSE).
