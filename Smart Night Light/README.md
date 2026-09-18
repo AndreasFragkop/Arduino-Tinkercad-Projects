@@ -1,10 +1,13 @@
 # Smart Night Light
 
 ![Difficulty: Beginner](https://img.shields.io/badge/Difficulty-Beginner-brightgreen)
+![Board: Arduino Uno](https://img.shields.io/badge/Board-Arduino%20Uno-00979D?logo=arduino&logoColor=white)
 
 ## Overview
 
 This project implements a simple automatic night light using an Arduino Uno, a photoresistor, an LED, and resistors. The photoresistor measures the surrounding light level, allowing the Arduino to turn the LED on when it becomes dark and turn it off when sufficient light is detected. The system continuously monitors the light level to provide automatic lighting without manual control.
+
+![Project Circuit](circuit.png)
 
 ## Components Used
 

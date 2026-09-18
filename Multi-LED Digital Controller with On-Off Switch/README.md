@@ -1,11 +1,14 @@
 # Multi-LED Digital Controller with On-Off Switch
 
 ![Difficulty: Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-orange)
+![Board: Arduino Uno](https://img.shields.io/badge/Board-Arduino%20Uno-00979D?logo=arduino&logoColor=white)
 
 ## Overview
 
 This project implements a multi-LED digital controller using an Arduino Uno.
 Sixteen LEDs are arranged on a breadboard and controlled through a switch input. When the switch is activated, the LEDs perform a scanning sequence from left to right and then reverse from right to left, creating a continuous back-and-forth lighting effect.
+
+![Project Circuit](circuit.png)
 
 ## Components Used
 

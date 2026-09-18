@@ -1,10 +1,13 @@
 # Arduino Piano 8 key
 
 ![Difficulty: Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-orange)
+![Board: Arduino Uno](https://img.shields.io/badge/Board-Arduino%20Uno-00979D?logo=arduino&logoColor=white)
 
 ## Overview
 
 This project implements a simple digital piano using an Arduino Uno. Eight push buttons are arranged on a breadboard and act as piano keys. When a button is pressed, the Arduino generates a musical tone through a buzzer. Each button corresponds to a different musical note, allowing the user to play simple melodies.
+
+![Project Circuit](circuit.png)
 
 ## Components Used
 

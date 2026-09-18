@@ -1,10 +1,13 @@
 # Digital Thermometer with LCD Display
 
 ![Difficulty: Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-orange)
+![Board: Arduino Uno](https://img.shields.io/badge/Board-Arduino%20Uno-00979D?logo=arduino&logoColor=white)
 
 ## Overview
 
 This project implements a digital thermometer using an Arduino Uno, a TMP36 temperature sensor, and a 16x2 LCD. The Arduino reads the temperature sensor, converts the measured voltage into degrees Celsius, and displays the current temperature on the LCD. A potentiometer allows the user to adjust the display contrast, making the temperature reading easier to read.
+
+![Project Circuit](circuit.png)
 
 ## Components Used
 

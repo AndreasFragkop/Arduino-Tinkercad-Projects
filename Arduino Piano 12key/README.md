@@ -1,10 +1,13 @@
 # Arduino Piano 12key
 
 ![Difficulty: Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-orange)
+![Board: Arduino Uno](https://img.shields.io/badge/Board-Arduino%20Uno-00979D?logo=arduino&logoColor=white)
 
 ## Overview
 
 This project implements a 12-key digital piano using an Arduino Uno, twelve push buttons, resistors, and a piezo buzzer. Each push button represents one note in a chromatic octave from C4 to B4. When a button is pressed, the Arduino generates the corresponding frequency through the buzzer, allowing the user to play natural notes and sharps across a complete octave.
+
+![Project Circuit](circuit.png)
 
 ## Components Used
 

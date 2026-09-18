@@ -1,10 +1,13 @@
 # Arduino Traffic Light Simulator
 
 ![Difficulty: Beginner](https://img.shields.io/badge/Difficulty-Beginner-brightgreen)
+![Board: Arduino Uno](https://img.shields.io/badge/Board-Arduino%20Uno-00979D?logo=arduino&logoColor=white)
 
 ## Overview
 
 This project implements a simple traffic light control system using an Arduino Uno, three LEDs, and resistors. The red, green, and yellow LEDs represent the signals of a traffic light. The system turns each LED on in sequence for a set duration, repeating the cycle continuously to simulate the operation of a traffic light.
+
+![Project Circuit](circuit.png)
 
 ## Components Used
 

@@ -1,10 +1,13 @@
 # Digital Safe with Keypad
 
 ![Difficulty: Advanced](https://img.shields.io/badge/Difficulty-Advanced-red)
+![Board: Arduino Uno](https://img.shields.io/badge/Board-Arduino%20Uno-00979D?logo=arduino&logoColor=white)
 
 ## Overview
 
 This project implements a digital safe security system using an Arduino Uno, a 4x4 keypad, an I2C 16x2 LCD, a servo motor, two LEDs, and a piezo buzzer. The user enters a four-digit PIN using the keypad, and the LCD hides each entered digit with an asterisk. A correct PIN unlocks the safe temporarily, while an incorrect PIN activates a warning. After three incorrect attempts, the system sounds an alarm and blocks further input for five seconds.
+
+![Project Circuit](circuit.png)
 
 ## Components Used
 

@@ -1,10 +1,13 @@
 # Arduino Blink LED Circuit
 
 ![Difficulty: Beginner](https://img.shields.io/badge/Difficulty-Beginner-brightgreen)
+![Board: Arduino Uno](https://img.shields.io/badge/Board-Arduino%20Uno-00979D?logo=arduino&logoColor=white)
 
 ## Overview
 
 This project implements a simple LED blinking circuit using an Arduino Uno, a red LED, and a resistor. The Arduino turns the LED on for one second and then off for one second. This sequence repeats continuously, demonstrating how a digital output can be used to control an LED.
+
+![Project Circuit](circuit.png)
 
 ## Components Used
 

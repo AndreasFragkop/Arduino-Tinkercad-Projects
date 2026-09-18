@@ -1,10 +1,13 @@
 # Arduino 16x2 LCD Interface
 
 ![Difficulty: Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-orange)
+![Board: Arduino Uno](https://img.shields.io/badge/Board-Arduino%20Uno-00979D?logo=arduino&logoColor=white)
 
 ## Overview
 
 This project implements a scrolling text display using an Arduino Uno, a 16x2 LCD, a potentiometer, and a resistor. The LCD displays the message “Loading Data”, which moves across the first row and repeats continuously. The potentiometer allows the user to adjust the display contrast, making the text easier to read.
+
+![Project Circuit](circuit.png)
 
 ## Components Used
 
