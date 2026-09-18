@@ -18,22 +18,9 @@ This repository contains multiple Arduino projects, each organized in its own fo
 
 ---
 
-## 🚀 Getting Started
-
-1. **Browse the Project Folders** – Choose a project that interests you.
-2. **Open `code.ino`** – Review and understand the Arduino code.
-3. **Try It in Tinkercad**:
-   - Visit [Tinkercad Circuits](https://www.tinkercad.com/circuits).
-   - Create a new circuit.
-   - Add and connect the required components.
-   - Copy the Arduino code into the Tinkercad code editor.
-   - Start the simulation and test the project.
-
-> No physical Arduino board is required—all projects can be recreated and simulated online.
-
----
-
 ## 📂 Project List
+
+> If you like a project, click its name to view the complete project and learn more.
 
 | Project | Description |
 |---------|-------------|
@@ -50,32 +37,15 @@ This repository contains multiple Arduino projects, each organized in its own fo
 | [Smart Night Light](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/Smart%20Night%20Light) | An automatic lighting system that uses a photoresistor to turn an LED on in dark conditions and off in brighter conditions. |
 | [Solar Tracking System Using LDR Sensors](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/Solar%20Tracking%20System%20Using%20LDR%20Sensors) | A simple system that uses LDR sensors to detect and follow the strongest light source. |
 
-More projects will be added over time.
+> More projects will be added over time.
 
 ---
 
 ## 🛠 Tools and Components Used
 
-### Tools
-
-- [Tinkercad Circuits](https://www.tinkercad.com/circuits) – Used to design, program, and simulate the Arduino circuits online.
-
-### Components
-
-- Arduino Uno
-- Breadboard
-- Jumper wires
-- LEDs
-- Resistors
-- Push buttons
-- Slide switch
-- Photoresistors
-- Potentiometers
-- LCD displays
-- Temperature sensor
-- Piezo buzzer
-- Servo motor
-- Keypad
+- [Tinkercad Circuits](https://www.tinkercad.com/circuits) – Free online Arduino simulator
+- **Arduino Uno** – The microcontroller used in all projects
+- LCD, keypad, piezo buzzer, photoresistor, temperature sensor, servo motor, LEDs, resistors, potentiometers, push buttons, slide switches, breadboards, and jumper wires
 
 ---
 
