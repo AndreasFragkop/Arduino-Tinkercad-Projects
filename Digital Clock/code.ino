@@ -1,0 +1,784 @@
+#include <LiquidCrystal.h>
+
+// =====================================================
+// LCD
+// RS = D2
+// E  = D3
+// D4 = D4
+// D5 = D5
+// D6 = D6
+// D7 = D7
+// =====================================================
+
+LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
+
+
+// =====================================================
+// BUTTONS
+// =====================================================
+
+const int SET_BUTTON  = 8;
+const int UP_BUTTON   = 9;
+const int DOWN_BUTTON = 10;
+
+
+// =====================================================
+// TIME - START AT 00:00:00
+// =====================================================
+
+int h = 0;
+int m = 0;
+int s = 0;
+
+int day = 1;
+int month = 1;
+
+
+// =====================================================
+// MODE
+//
+// 0 = RUN
+// 1 = SET HOURS
+// 2 = SET MINUTES
+// 3 = SET DAY
+// 4 = SET MONTH
+// =====================================================
+
+int mode = 0;
+
+
+// =====================================================
+// DAYS
+// =====================================================
+
+int daysInMonth[13] = {
+  0,
+  31, 28, 31, 30, 31, 30,
+  31, 31, 30, 31, 30, 31
+};
+
+
+// =====================================================
+// MONTH DISPLAY
+// =====================================================
+
+char monthCharacter[13] = {
+  ' ',
+  '1', '2', '3', '4', '5', '6',
+  '7', '8', '9', 'O', 'N', 'D'
+};
+
+
+// =====================================================
+// BUTTON STATES
+// =====================================================
+
+bool lastSet  = HIGH;
+bool lastUp   = HIGH;
+bool lastDown = HIGH;
+
+
+// =====================================================
+// TIMER
+// =====================================================
+
+unsigned long previousMillis = 0;
+
+bool colonState = true;
+
+
+// =====================================================
+// CUSTOM LCD CHARACTERS
+// =====================================================
+
+byte bar1[8] = {
+  B11100,
+  B11110,
+  B11110,
+  B11110,
+  B11110,
+  B11110,
+  B11110,
+  B11100
+};
+
+byte bar2[8] = {
+  B00111,
+  B01111,
+  B01111,
+  B01111,
+  B01111,
+  B01111,
+  B01111,
+  B00111
+};
+
+byte bar3[8] = {
+  B11111,
+  B11111,
+  B00000,
+  B00000,
+  B00000,
+  B00000,
+  B11111,
+  B11111
+};
+
+byte bar4[8] = {
+  B11110,
+  B11100,
+  B00000,
+  B00000,
+  B00000,
+  B00000,
+  B11000,
+  B11100
+};
+
+byte bar5[8] = {
+  B01111,
+  B00111,
+  B00000,
+  B00000,
+  B00000,
+  B00000,
+  B00011,
+  B00111
+};
+
+byte bar6[8] = {
+  B00000,
+  B00000,
+  B00000,
+  B00000,
+  B00000,
+  B00000,
+  B11111,
+  B11111
+};
+
+byte bar7[8] = {
+  B00000,
+  B00000,
+  B00000,
+  B00000,
+  B00000,
+  B00000,
+  B00111,
+  B01111
+};
+
+byte bar8[8] = {
+  B11111,
+  B11111,
+  B00000,
+  B00000,
+  B00000,
+  B00000,
+  B00000,
+  B00000
+};
+
+
+// =====================================================
+// SETUP
+// =====================================================
+
+void setup() {
+
+  lcd.begin(16, 2);
+
+  lcd.createChar(1, bar1);
+  lcd.createChar(2, bar2);
+  lcd.createChar(3, bar3);
+  lcd.createChar(4, bar4);
+  lcd.createChar(5, bar5);
+  lcd.createChar(6, bar6);
+  lcd.createChar(7, bar7);
+
+  // bar8 uses position 0
+  lcd.createChar(0, bar8);
+
+
+  pinMode(SET_BUTTON, INPUT);
+  pinMode(UP_BUTTON, INPUT);
+  pinMode(DOWN_BUTTON, INPUT);
+
+
+  // Start normally
+  mode = 0;
+
+  h = 0;
+  m = 0;
+  s = 0;
+
+  day = 1;
+  month = 1;
+
+  colonState = true;
+
+  lcd.clear();
+
+  delay(300);
+
+
+  // Read initial states
+  lastSet  = digitalRead(SET_BUTTON);
+  lastUp   = digitalRead(UP_BUTTON);
+  lastDown = digitalRead(DOWN_BUTTON);
+
+  previousMillis = millis();
+}
+
+
+// =====================================================
+// BIG 0
+// =====================================================
+
+void custom0(int col) {
+
+  lcd.setCursor(col, 0);
+
+  lcd.write(byte(2));
+  lcd.write(byte(0));
+  lcd.write(byte(1));
+
+  lcd.setCursor(col, 1);
+
+  lcd.write(byte(2));
+  lcd.write(byte(6));
+  lcd.write(byte(1));
+}
+
+
+// =====================================================
+// BIG 1
+// =====================================================
+
+void custom1(int col) {
+
+  lcd.setCursor(col, 0);
+
+  lcd.print("  ");
+  lcd.write(byte(1));
+
+  lcd.setCursor(col, 1);
+
+  lcd.print("  ");
+  lcd.write(byte(1));
+}
+
+
+// =====================================================
+// BIG 2
+// =====================================================
+
+void custom2(int col) {
+
+  lcd.setCursor(col, 0);
+
+  lcd.write(byte(5));
+  lcd.write(byte(3));
+  lcd.write(byte(1));
+
+  lcd.setCursor(col, 1);
+
+  lcd.write(byte(2));
+  lcd.write(byte(6));
+  lcd.write(byte(6));
+}
+
+
+// =====================================================
+// BIG 3
+// =====================================================
+
+void custom3(int col) {
+
+  lcd.setCursor(col, 0);
+
+  lcd.write(byte(5));
+  lcd.write(byte(3));
+  lcd.write(byte(1));
+
+  lcd.setCursor(col, 1);
+
+  lcd.write(byte(7));
+  lcd.write(byte(6));
+  lcd.write(byte(1));
+}
+
+
+// =====================================================
+// BIG 4
+// =====================================================
+
+void custom4(int col) {
+
+  lcd.setCursor(col, 0);
+
+  lcd.write(byte(2));
+  lcd.write(byte(6));
+  lcd.write(byte(1));
+
+  lcd.setCursor(col, 1);
+
+  lcd.print("  ");
+  lcd.write(byte(1));
+}
+
+
+// =====================================================
+// BIG 5
+// =====================================================
+
+void custom5(int col) {
+
+  lcd.setCursor(col, 0);
+
+  lcd.write(byte(2));
+  lcd.write(byte(3));
+  lcd.write(byte(4));
+
+  lcd.setCursor(col, 1);
+
+  lcd.write(byte(7));
+  lcd.write(byte(6));
+  lcd.write(byte(1));
+}
+
+
+// =====================================================
+// BIG 6
+// =====================================================
+
+void custom6(int col) {
+
+  lcd.setCursor(col, 0);
+
+  lcd.write(byte(2));
+  lcd.write(byte(3));
+  lcd.write(byte(4));
+
+  lcd.setCursor(col, 1);
+
+  lcd.write(byte(2));
+  lcd.write(byte(6));
+  lcd.write(byte(1));
+}
+
+
+// =====================================================
+// BIG 7
+// =====================================================
+
+void custom7(int col) {
+
+  lcd.setCursor(col, 0);
+
+  lcd.write(byte(0));
+  lcd.write(byte(0));
+  lcd.write(byte(1));
+
+  lcd.setCursor(col, 1);
+
+  lcd.print("  ");
+  lcd.write(byte(1));
+}
+
+
+// =====================================================
+// BIG 8
+// =====================================================
+
+void custom8(int col) {
+
+  lcd.setCursor(col, 0);
+
+  lcd.write(byte(2));
+  lcd.write(byte(3));
+  lcd.write(byte(1));
+
+  lcd.setCursor(col, 1);
+
+  lcd.write(byte(2));
+  lcd.write(byte(6));
+  lcd.write(byte(1));
+}
+
+
+// =====================================================
+// BIG 9
+// =====================================================
+
+void custom9(int col) {
+
+  lcd.setCursor(col, 0);
+
+  lcd.write(byte(2));
+  lcd.write(byte(3));
+  lcd.write(byte(1));
+
+  lcd.setCursor(col, 1);
+
+  lcd.write(byte(7));
+  lcd.write(byte(6));
+  lcd.write(byte(1));
+}
+
+
+// =====================================================
+// PRINT NUMBER
+// =====================================================
+
+void printNumber(int value, int col) {
+
+  switch (value) {
+
+    case 0:
+      custom0(col);
+      break;
+
+    case 1:
+      custom1(col);
+      break;
+
+    case 2:
+      custom2(col);
+      break;
+
+    case 3:
+      custom3(col);
+      break;
+
+    case 4:
+      custom4(col);
+      break;
+
+    case 5:
+      custom5(col);
+      break;
+
+    case 6:
+      custom6(col);
+      break;
+
+    case 7:
+      custom7(col);
+      break;
+
+    case 8:
+      custom8(col);
+      break;
+
+    case 9:
+      custom9(col);
+      break;
+  }
+}
+
+
+// =====================================================
+// BUTTONS
+// =====================================================
+
+void checkButtons() {
+
+  bool setNow  = digitalRead(SET_BUTTON);
+  bool upNow   = digitalRead(UP_BUTTON);
+  bool downNow = digitalRead(DOWN_BUTTON);
+
+
+  // =================================================
+  // SET
+  // =================================================
+
+  if (setNow == HIGH && lastSet == LOW) {
+
+    mode++;
+
+    if (mode > 4) {
+
+      mode = 0;
+
+      // Resume clock cleanly
+      previousMillis = millis();
+    }
+
+    delay(100);
+  }
+
+
+  // =================================================
+  // UP
+  // =================================================
+
+  if (upNow == HIGH && lastUp == LOW) {
+
+    // MODE 1 = HOURS
+    if (mode == 1) {
+
+      h = h + 1;
+
+      if (h > 23) {
+        h = 0;
+      }
+    }
+
+
+    // MODE 2 = MINUTES
+    else if (mode == 2) {
+
+      m = m + 1;
+
+      if (m > 59) {
+        m = 0;
+      }
+    }
+
+
+    // MODE 3 = DAY
+    else if (mode == 3) {
+
+      day = day + 1;
+
+      if (day > daysInMonth[month]) {
+        day = 1;
+      }
+    }
+
+
+    // MODE 4 = MONTH
+    else if (mode == 4) {
+
+      month = month + 1;
+
+      if (month > 12) {
+        month = 1;
+      }
+
+      if (day > daysInMonth[month]) {
+        day = daysInMonth[month];
+      }
+    }
+
+    delay(100);
+  }
+
+
+  // =================================================
+  // DOWN
+  // =================================================
+
+  if (downNow == HIGH && lastDown == LOW) {
+
+    // MODE 1 = HOURS
+    if (mode == 1) {
+
+      h = h - 1;
+
+      if (h < 0) {
+        h = 23;
+      }
+    }
+
+
+    // MODE 2 = MINUTES
+    else if (mode == 2) {
+
+      m = m - 1;
+
+      if (m < 0) {
+        m = 59;
+      }
+    }
+
+
+    // MODE 3 = DAY
+    else if (mode == 3) {
+
+      day = day - 1;
+
+      if (day < 1) {
+        day = daysInMonth[month];
+      }
+    }
+
+
+    // MODE 4 = MONTH
+    else if (mode == 4) {
+
+      month = month - 1;
+
+      if (month < 1) {
+        month = 12;
+      }
+
+      if (day > daysInMonth[month]) {
+        day = daysInMonth[month];
+      }
+    }
+
+    delay(100);
+  }
+
+
+  // Save states AFTER all checks
+  lastSet  = setNow;
+  lastUp   = upNow;
+  lastDown = downNow;
+}
+
+
+// =====================================================
+// UPDATE TIME
+// =====================================================
+
+void updateClock() {
+
+  unsigned long currentMillis = millis();
+
+
+  // MODE 0 = CLOCK RUNNING
+  if (mode == 0) {
+
+    if (currentMillis - previousMillis >= 500) {
+
+      previousMillis = currentMillis;
+
+      colonState = !colonState;
+
+
+      // One second
+      if (colonState == true) {
+
+        s++;
+
+
+        // SECONDS
+        if (s >= 60) {
+
+          s = 0;
+          m++;
+
+
+          // MINUTES
+          if (m >= 60) {
+
+            m = 0;
+            h++;
+
+
+            // HOURS
+            if (h >= 24) {
+
+              h = 0;
+              day++;
+
+
+              // DAY
+              if (day > daysInMonth[month]) {
+
+                day = 1;
+                month++;
+
+
+                // MONTH
+                if (month > 12) {
+                  month = 1;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  // MODE 1-4 = CLOCK PAUSED
+  else {
+
+    colonState = true;
+
+    previousMillis = currentMillis;
+  }
+}
+
+
+// =====================================================
+// DISPLAY
+// =====================================================
+
+void displayClock() {
+
+  // HOURS
+  printNumber(h / 10, 0);
+  printNumber(h % 10, 3);
+
+
+  // MINUTES
+  printNumber(m / 10, 7);
+  printNumber(m % 10, 10);
+
+
+  // CENTER DOTS
+  if (colonState) {
+
+    lcd.setCursor(6, 0);
+    lcd.print(".");
+
+    lcd.setCursor(6, 1);
+    lcd.print(".");
+  }
+
+  else {
+
+    lcd.setCursor(6, 0);
+    lcd.print(" ");
+
+    lcd.setCursor(6, 1);
+    lcd.print(" ");
+  }
+
+
+  // COLON BEFORE SECONDS
+  lcd.setCursor(13, 0);
+
+  if (colonState) {
+    lcd.print(":");
+  }
+  else {
+    lcd.print(" ");
+  }
+
+
+  // SECONDS
+  lcd.setCursor(14, 0);
+
+  lcd.print(s / 10);
+  lcd.print(s % 10);
+
+
+  // DATE
+  lcd.setCursor(13, 1);
+
+  lcd.print(monthCharacter[month]);
+
+  lcd.print(day / 10);
+  lcd.print(day % 10);
+}
+
+
+// =====================================================
+// LOOP
+// =====================================================
+
+void loop() {
+
+  checkButtons();
+
+  updateClock();
+
+  displayClock();
+}
