@@ -1,4 +1,4 @@
-# Arduino Traffic Light Simulator
+# Traffic Light Simulator
 
 ![Difficulty: Beginner](https://img.shields.io/badge/Difficulty-Beginner-brightgreen)
 ![Board: Arduino Uno](https://img.shields.io/badge/Board-Arduino%20Uno-00979D?logo=arduino&logoColor=white)

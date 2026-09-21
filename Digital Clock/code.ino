@@ -1,55 +1,22 @@
 #include <LiquidCrystal.h>
 
-// =====================================================
-// LCD
-// RS = D2
-// E  = D3
-// D4 = D4
-// D5 = D5
-// D6 = D6
-// D7 = D7
-// =====================================================
-
+// LCD pins: RS, E, D4, D5, D6, D7
 LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
 
-
-// =====================================================
-// BUTTONS
-// =====================================================
-
+// Buttons (active HIGH, using external pull-down resistors)
 const int SET_BUTTON  = 8;
 const int UP_BUTTON   = 9;
 const int DOWN_BUTTON = 10;
 
-
-// =====================================================
-// TIME - START AT 00:00:00
-// =====================================================
-
+// Time and date
 int h = 0;
 int m = 0;
 int s = 0;
-
 int day = 1;
 int month = 1;
 
-
-// =====================================================
-// MODE
-//
-// 0 = RUN
-// 1 = SET HOURS
-// 2 = SET MINUTES
-// 3 = SET DAY
-// 4 = SET MONTH
-// =====================================================
-
+// 0 = run, 1 = set hours, 2 = set minutes, 3 = set day, 4 = set month
 int mode = 0;
-
-
-// =====================================================
-// DAYS
-// =====================================================
 
 int daysInMonth[13] = {
   0,
@@ -57,40 +24,23 @@ int daysInMonth[13] = {
   31, 31, 30, 31, 30, 31
 };
 
-
-// =====================================================
-// MONTH DISPLAY
-// =====================================================
-
+// Single-character month display (Oct = O, Nov = N, Dec = D)
 char monthCharacter[13] = {
   ' ',
   '1', '2', '3', '4', '5', '6',
   '7', '8', '9', 'O', 'N', 'D'
 };
 
-
-// =====================================================
-// BUTTON STATES
-// =====================================================
-
-bool lastSet  = HIGH;
-bool lastUp   = HIGH;
-bool lastDown = HIGH;
-
-
-// =====================================================
-// TIMER
-// =====================================================
+// Previous button states, used to detect a new press
+bool lastSet  = LOW;
+bool lastUp   = LOW;
+bool lastDown = LOW;
 
 unsigned long previousMillis = 0;
+bool colonState = true;   // Toggles every 500 ms to blink the colon
 
-bool colonState = true;
 
-
-// =====================================================
-// CUSTOM LCD CHARACTERS
-// =====================================================
-
+// Custom characters used to build the big digits
 byte bar1[8] = {
   B11100,
   B11110,
@@ -180,14 +130,11 @@ byte bar8[8] = {
 };
 
 
-// =====================================================
-// SETUP
-// =====================================================
-
 void setup() {
 
   lcd.begin(16, 2);
 
+  // Load custom characters into LCD memory
   lcd.createChar(1, bar1);
   lcd.createChar(2, bar2);
   lcd.createChar(3, bar3);
@@ -195,34 +142,25 @@ void setup() {
   lcd.createChar(5, bar5);
   lcd.createChar(6, bar6);
   lcd.createChar(7, bar7);
-
-  // bar8 uses position 0
-  lcd.createChar(0, bar8);
-
+  lcd.createChar(0, bar8);   // Slot 0 is used for bar8
 
   pinMode(SET_BUTTON, INPUT);
   pinMode(UP_BUTTON, INPUT);
   pinMode(DOWN_BUTTON, INPUT);
 
-
-  // Start normally
+  // Start at 00:00:00, 1 Jan, in run mode
   mode = 0;
-
   h = 0;
   m = 0;
   s = 0;
-
   day = 1;
   month = 1;
-
   colonState = true;
 
   lcd.clear();
-
   delay(300);
 
-
-  // Read initial states
+  // Read starting button states
   lastSet  = digitalRead(SET_BUTTON);
   lastUp   = digitalRead(UP_BUTTON);
   lastDown = digitalRead(DOWN_BUTTON);
@@ -231,206 +169,135 @@ void setup() {
 }
 
 
-// =====================================================
-// BIG 0
-// =====================================================
-
+// Big digits: each is 3 columns wide and 2 rows tall
 void custom0(int col) {
 
   lcd.setCursor(col, 0);
-
   lcd.write(byte(2));
   lcd.write(byte(0));
   lcd.write(byte(1));
 
   lcd.setCursor(col, 1);
-
   lcd.write(byte(2));
   lcd.write(byte(6));
   lcd.write(byte(1));
 }
-
-
-// =====================================================
-// BIG 1
-// =====================================================
 
 void custom1(int col) {
 
   lcd.setCursor(col, 0);
-
   lcd.print("  ");
   lcd.write(byte(1));
 
   lcd.setCursor(col, 1);
-
   lcd.print("  ");
   lcd.write(byte(1));
 }
-
-
-// =====================================================
-// BIG 2
-// =====================================================
 
 void custom2(int col) {
 
   lcd.setCursor(col, 0);
-
   lcd.write(byte(5));
   lcd.write(byte(3));
   lcd.write(byte(1));
 
   lcd.setCursor(col, 1);
-
   lcd.write(byte(2));
   lcd.write(byte(6));
   lcd.write(byte(6));
 }
-
-
-// =====================================================
-// BIG 3
-// =====================================================
 
 void custom3(int col) {
 
   lcd.setCursor(col, 0);
-
   lcd.write(byte(5));
   lcd.write(byte(3));
   lcd.write(byte(1));
 
   lcd.setCursor(col, 1);
-
   lcd.write(byte(7));
   lcd.write(byte(6));
   lcd.write(byte(1));
 }
-
-
-// =====================================================
-// BIG 4
-// =====================================================
 
 void custom4(int col) {
 
   lcd.setCursor(col, 0);
-
   lcd.write(byte(2));
   lcd.write(byte(6));
   lcd.write(byte(1));
 
   lcd.setCursor(col, 1);
-
   lcd.print("  ");
   lcd.write(byte(1));
 }
-
-
-// =====================================================
-// BIG 5
-// =====================================================
 
 void custom5(int col) {
 
   lcd.setCursor(col, 0);
-
   lcd.write(byte(2));
   lcd.write(byte(3));
   lcd.write(byte(4));
 
   lcd.setCursor(col, 1);
-
   lcd.write(byte(7));
   lcd.write(byte(6));
   lcd.write(byte(1));
 }
-
-
-// =====================================================
-// BIG 6
-// =====================================================
 
 void custom6(int col) {
 
   lcd.setCursor(col, 0);
-
   lcd.write(byte(2));
   lcd.write(byte(3));
   lcd.write(byte(4));
 
   lcd.setCursor(col, 1);
-
   lcd.write(byte(2));
   lcd.write(byte(6));
   lcd.write(byte(1));
 }
-
-
-// =====================================================
-// BIG 7
-// =====================================================
 
 void custom7(int col) {
 
   lcd.setCursor(col, 0);
-
   lcd.write(byte(0));
   lcd.write(byte(0));
   lcd.write(byte(1));
 
   lcd.setCursor(col, 1);
-
   lcd.print("  ");
   lcd.write(byte(1));
 }
 
-
-// =====================================================
-// BIG 8
-// =====================================================
-
 void custom8(int col) {
 
   lcd.setCursor(col, 0);
-
   lcd.write(byte(2));
   lcd.write(byte(3));
   lcd.write(byte(1));
 
   lcd.setCursor(col, 1);
-
   lcd.write(byte(2));
   lcd.write(byte(6));
   lcd.write(byte(1));
 }
 
-
-// =====================================================
-// BIG 9
-// =====================================================
-
 void custom9(int col) {
 
   lcd.setCursor(col, 0);
-
   lcd.write(byte(2));
   lcd.write(byte(3));
   lcd.write(byte(1));
 
   lcd.setCursor(col, 1);
-
   lcd.write(byte(7));
   lcd.write(byte(6));
   lcd.write(byte(1));
 }
 
 
-// =====================================================
-// PRINT NUMBER
-// =====================================================
-
+// Draw a single big digit (0-9) starting at the given column
 void printNumber(int value, int col) {
 
   switch (value) {
@@ -478,10 +345,7 @@ void printNumber(int value, int col) {
 }
 
 
-// =====================================================
-// BUTTONS
-// =====================================================
-
+// Read buttons and handle mode changes and value adjustments
 void checkButtons() {
 
   bool setNow  = digitalRead(SET_BUTTON);
@@ -489,10 +353,7 @@ void checkButtons() {
   bool downNow = digitalRead(DOWN_BUTTON);
 
 
-  // =================================================
-  // SET
-  // =================================================
-
+  // SET: cycle through modes
   if (setNow == HIGH && lastSet == LOW) {
 
     mode++;
@@ -501,23 +362,18 @@ void checkButtons() {
 
       mode = 0;
 
-      // Resume clock cleanly
+      // Resume the clock cleanly
       previousMillis = millis();
     }
 
-    delay(100);
+    delay(100);   // Simple debounce
   }
 
 
-  // =================================================
-  // UP
-  // =================================================
-
+  // UP: increase the selected value
   if (upNow == HIGH && lastUp == LOW) {
 
-    // MODE 1 = HOURS
-    if (mode == 1) {
-
+    if (mode == 1) {          // Hours
       h = h + 1;
 
       if (h > 23) {
@@ -525,10 +381,7 @@ void checkButtons() {
       }
     }
 
-
-    // MODE 2 = MINUTES
-    else if (mode == 2) {
-
+    else if (mode == 2) {     // Minutes
       m = m + 1;
 
       if (m > 59) {
@@ -536,10 +389,7 @@ void checkButtons() {
       }
     }
 
-
-    // MODE 3 = DAY
-    else if (mode == 3) {
-
+    else if (mode == 3) {     // Day
       day = day + 1;
 
       if (day > daysInMonth[month]) {
@@ -547,16 +397,14 @@ void checkButtons() {
       }
     }
 
-
-    // MODE 4 = MONTH
-    else if (mode == 4) {
-
+    else if (mode == 4) {     // Month
       month = month + 1;
 
       if (month > 12) {
         month = 1;
       }
 
+      // Keep the day valid for the new month
       if (day > daysInMonth[month]) {
         day = daysInMonth[month];
       }
@@ -566,15 +414,10 @@ void checkButtons() {
   }
 
 
-  // =================================================
-  // DOWN
-  // =================================================
-
+  // DOWN: decrease the selected value
   if (downNow == HIGH && lastDown == LOW) {
 
-    // MODE 1 = HOURS
-    if (mode == 1) {
-
+    if (mode == 1) {          // Hours
       h = h - 1;
 
       if (h < 0) {
@@ -582,10 +425,7 @@ void checkButtons() {
       }
     }
 
-
-    // MODE 2 = MINUTES
-    else if (mode == 2) {
-
+    else if (mode == 2) {     // Minutes
       m = m - 1;
 
       if (m < 0) {
@@ -593,10 +433,7 @@ void checkButtons() {
       }
     }
 
-
-    // MODE 3 = DAY
-    else if (mode == 3) {
-
+    else if (mode == 3) {     // Day
       day = day - 1;
 
       if (day < 1) {
@@ -604,16 +441,14 @@ void checkButtons() {
       }
     }
 
-
-    // MODE 4 = MONTH
-    else if (mode == 4) {
-
+    else if (mode == 4) {     // Month
       month = month - 1;
 
       if (month < 1) {
         month = 12;
       }
 
+      // Keep the day valid for the new month
       if (day > daysInMonth[month]) {
         day = daysInMonth[month];
       }
@@ -623,23 +458,19 @@ void checkButtons() {
   }
 
 
-  // Save states AFTER all checks
+  // Remember button states for the next loop
   lastSet  = setNow;
   lastUp   = upNow;
   lastDown = downNow;
 }
 
 
-// =====================================================
-// UPDATE TIME
-// =====================================================
-
+// Keep time: every 500 ms the colon toggles, and each full blink adds 1 second
 void updateClock() {
 
   unsigned long currentMillis = millis();
 
-
-  // MODE 0 = CLOCK RUNNING
+  // Run mode: clock is counting
   if (mode == 0) {
 
     if (currentMillis - previousMillis >= 500) {
@@ -648,42 +479,31 @@ void updateClock() {
 
       colonState = !colonState;
 
-
-      // One second
+      // Count a second each time the colon turns on
       if (colonState == true) {
 
         s++;
 
-
-        // SECONDS
         if (s >= 60) {
 
           s = 0;
           m++;
 
-
-          // MINUTES
           if (m >= 60) {
 
             m = 0;
             h++;
 
-
-            // HOURS
             if (h >= 24) {
 
               h = 0;
               day++;
 
-
-              // DAY
               if (day > daysInMonth[month]) {
 
                 day = 1;
                 month++;
 
-
-                // MONTH
                 if (month > 12) {
                   month = 1;
                 }
@@ -695,34 +515,27 @@ void updateClock() {
     }
   }
 
-
-  // MODE 1-4 = CLOCK PAUSED
+  // Setting modes: clock is paused, colon stays on
   else {
 
     colonState = true;
-
     previousMillis = currentMillis;
   }
 }
 
 
-// =====================================================
-// DISPLAY
-// =====================================================
-
+// Draw time, seconds and date on the LCD
 void displayClock() {
 
-  // HOURS
+  // Hours
   printNumber(h / 10, 0);
   printNumber(h % 10, 3);
 
-
-  // MINUTES
+  // Minutes
   printNumber(m / 10, 7);
   printNumber(m % 10, 10);
 
-
-  // CENTER DOTS
+  // Blinking dots between hours and minutes
   if (colonState) {
 
     lcd.setCursor(6, 0);
@@ -741,8 +554,7 @@ void displayClock() {
     lcd.print(" ");
   }
 
-
-  // COLON BEFORE SECONDS
+  // Blinking colon before seconds
   lcd.setCursor(13, 0);
 
   if (colonState) {
@@ -752,33 +564,22 @@ void displayClock() {
     lcd.print(" ");
   }
 
-
-  // SECONDS
+  // Seconds
   lcd.setCursor(14, 0);
-
   lcd.print(s / 10);
   lcd.print(s % 10);
 
-
-  // DATE
+  // Date: month character followed by two-digit day
   lcd.setCursor(13, 1);
-
   lcd.print(monthCharacter[month]);
-
   lcd.print(day / 10);
   lcd.print(day % 10);
 }
 
 
-// =====================================================
-// LOOP
-// =====================================================
-
 void loop() {
 
   checkButtons();
-
   updateClock();
-
   displayClock();
 }

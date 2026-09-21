@@ -1,4 +1,4 @@
-# Arduino Multi-Tasking LED Controller
+# Multi-Tasking LED Controller
 
 ![Difficulty: Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-orange)
 ![Board: Arduino Uno](https://img.shields.io/badge/Board-Arduino%20Uno-00979D?logo=arduino&logoColor=white)

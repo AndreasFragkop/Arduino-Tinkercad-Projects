@@ -1,9 +1,9 @@
-const int BLUE_LED   = 5;
-const int GREEN_LED  = 6;
-const int BUTTON_PIN = 2;
+const int BLUE_LED   = 5;   // Blinks on its own
+const int GREEN_LED  = 6;   // Follows the button
+const int BUTTON_PIN = 2;   // Button input (pressed = HIGH)
 
 unsigned long previousMillis = 0;
-const long blinkInterval = 500; // Blink every 0.5 seconds
+const long blinkInterval = 500;   // Blink every 0.5 seconds
 int blueState = LOW;
 
 void setup() {
@@ -13,19 +13,20 @@ void setup() {
 }
 
 void loop() {
-  // 1. Instant Button Check (Runs continuously without delay)
+  // Green LED is on only while the button is held
   if (digitalRead(BUTTON_PIN) == HIGH) {
     digitalWrite(GREEN_LED, HIGH);
   } else {
     digitalWrite(GREEN_LED, LOW);
   }
 
-  // 2. Non-blocking Blue LED Blink Timer
+  // Blue LED blinks using millis() instead of delay(),
+  // so the button is still checked instantly
   unsigned long currentMillis = millis();
   if (currentMillis - previousMillis >= blinkInterval) {
     previousMillis = currentMillis;
 
-    // Toggle the blue LED state
+    // Toggle the blue LED
     if (blueState == LOW) {
       blueState = HIGH;
     } else {

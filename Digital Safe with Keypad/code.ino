@@ -3,22 +3,22 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-// ---------------- LCD ----------------
+// I2C LCD (address 0x27, 16x2)
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// ---------------- SERVO ----------------
+// Servo that moves the safe latch
 Servo safeLatch;
 
 const int SERVO_PIN = 9;
 const int LOCKED_POS = 0;
 const int UNLOCKED_POS = 90;
 
-// ---------------- LEDs + BUZZER ----------------
+// Status LEDs and buzzer
 const int GREEN_LED = 10;
 const int RED_LED = 11;
 const int BUZZER = 12;
 
-// ---------------- KEYPAD ----------------
+// 4x4 keypad layout
 const byte ROWS = 4;
 const byte COLS = 4;
 
@@ -29,16 +29,7 @@ char keys[ROWS][COLS] = {
   {'*', '0', '#', 'D'}
 };
 
-// Keypad:
-// R1 = D2
-// R2 = D3
-// R3 = D4
-// R4 = D5
-// C1 = D6
-// C2 = D7
-// C3 = D8
-// C4 = A1
-
+// Keypad wiring: rows on D2-D5, columns on D6, D7, D8, A1
 byte rowPins[ROWS] = {2, 3, 4, 5};
 byte colPins[COLS] = {6, 7, 8, A1};
 
@@ -50,19 +41,18 @@ Keypad keypad = Keypad(
   COLS
 );
 
-// ---------------- PASSWORD ----------------
 const String CORRECT_PIN = "1234";
 
-String enteredPIN = "";
-int wrongAttempts = 0;
+String enteredPIN = "";   // PIN typed so far
+int wrongAttempts = 0;    // Counts consecutive wrong entries
 
 void setup() {
 
-  // LCD
+  // Start the LCD
   lcd.init();
   lcd.backlight();
 
-  // LEDs and buzzer
+  // LEDs and buzzer start off
   pinMode(GREEN_LED, OUTPUT);
   pinMode(RED_LED, OUTPUT);
   pinMode(BUZZER, OUTPUT);
@@ -70,7 +60,7 @@ void setup() {
   digitalWrite(GREEN_LED, LOW);
   digitalWrite(RED_LED, LOW);
 
-  // Servo
+  // Start with the safe locked
   safeLatch.attach(SERVO_PIN);
   safeLatch.write(LOCKED_POS);
 
@@ -83,27 +73,28 @@ void loop() {
 
   if (key) {
 
-    // Small sound when a key is pressed
+    // Short beep on every key press
     tone(BUZZER, 1000, 50);
 
-    // # = ENTER
+    // # = enter
     if (key == '#') {
       checkPIN();
     }
 
-    // * = CLEAR
+    // * = clear
     else if (key == '*') {
       enteredPIN = "";
       showHomeScreen();
     }
 
-    // Only allow numbers
+    // Digits only, up to 4 characters
     else if (key >= '0' && key <= '9') {
 
       if (enteredPIN.length() < 4) {
 
         enteredPIN += key;
 
+        // Show a * for each digit entered
         lcd.setCursor(5 + enteredPIN.length() - 1, 1);
         lcd.print("*");
       }
@@ -111,8 +102,8 @@ void loop() {
   }
 }
 
-// ------------------------------------------------
 
+// Draw the default screen
 void showHomeScreen() {
 
   lcd.clear();
@@ -124,11 +115,11 @@ void showHomeScreen() {
   lcd.print("PIN: ");
 }
 
-// ------------------------------------------------
 
+// Check the entered PIN and react
 void checkPIN() {
 
-  // CORRECT PASSWORD
+  // Correct PIN: unlock the safe
   if (enteredPIN == CORRECT_PIN) {
 
     wrongAttempts = 0;
@@ -143,13 +134,13 @@ void checkPIN() {
     lcd.setCursor(0, 1);
     lcd.print("UNLOCKING...");
 
-    // Success sounds
+    // Success sound
     tone(BUZZER, 1500, 150);
     delay(200);
 
     tone(BUZZER, 2000, 200);
 
-    // Open vault
+    // Open the latch and keep it open for 4 seconds
     safeLatch.write(UNLOCKED_POS);
 
     delay(4000);
@@ -164,7 +155,7 @@ void checkPIN() {
     showHomeScreen();
   }
 
-  // WRONG PASSWORD
+  // Wrong PIN
   else {
 
     wrongAttempts++;
@@ -179,6 +170,7 @@ void checkPIN() {
     lcd.setCursor(0, 1);
     lcd.print("TRY AGAIN");
 
+    // Low error tone
     tone(BUZZER, 400, 500);
 
     delay(1500);
@@ -187,7 +179,7 @@ void checkPIN() {
 
     enteredPIN = "";
 
-    // Alarm after 3 wrong attempts
+    // After 3 wrong attempts, sound the alarm and lock out for 5 seconds
     if (wrongAttempts >= 3) {
 
       lcd.clear();
@@ -200,6 +192,7 @@ void checkPIN() {
 
       digitalWrite(RED_LED, HIGH);
 
+      // Alternating siren tones, 1 second per loop
       for (int i = 0; i < 5; i++) {
 
         tone(BUZZER, 700, 400);

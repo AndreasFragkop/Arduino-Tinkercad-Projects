@@ -1,4 +1,4 @@
-# Arduino Piano 8 key
+# 8-Key Piano
 
 ![Difficulty: Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-orange)
 ![Board: Arduino Uno](https://img.shields.io/badge/Board-Arduino%20Uno-00979D?logo=arduino&logoColor=white)
