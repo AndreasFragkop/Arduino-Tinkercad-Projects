@@ -10,11 +10,13 @@ Hello everyone, in this repository I store all the Arduino projects that I creat
 
 This repository contains multiple Arduino projects, each organized in its own folder with the required files and project details.
 
-- Circuit image (.png)
-- Arduino code (.ino)
-- Components list (.csv)
-- Description (.md)
-- Schematic view (.pdf)
+| File | Description |
+|------|-------------|
+| Circuit image (`.png`) | Shows the complete circuit layout and wiring |
+| Arduino code (`.ino`) | Contains the program used to control the project |
+| Components list (`.csv`) | Lists the components and quantities used in the circuit |
+| Project README (`.md`) | Explains the project, functionality, code, pins, and behaviour |
+| Schematic view (`.pdf`) | Shows the circuit connections in schematic form |
 
 ---
 
@@ -24,9 +26,9 @@ This repository contains multiple Arduino projects, each organized in its own fo
 
 | Project | Description |
 |---------|-------------|
-| [8-Key Piano](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/8-Key%20Piano) | A small digital piano built with Arduino where eight buttons act as keys to play musical notes. |
 | [12-Key Piano](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/12-Key%20Piano) | A 12-key digital piano that plays a complete chromatic octave from C4 to B4 using push buttons and a piezo buzzer. |
 | [16x2 LCD Interface](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/16x2%20LCD%20Interface) | A scrolling text display that shows “Loading Data” on a 16x2 LCD, with a potentiometer to adjust the contrast. |
+| [8-Key Piano](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/8-Key%20Piano) | A small digital piano built with Arduino where eight buttons act as keys to play musical notes. |
 | [Blink LED Circuit](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/Blink%20LED%20Circuit) | A simple circuit that turns a red LED on and off at one-second intervals to create a steady blinking effect. |
 | [Digital Clock](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/Digital%20Clock) | A digital clock and calendar with a 16x2 LCD and buttons for setting the time and date. |
 | [Digital Safe with Keypad](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/Digital%20Safe%20with%20Keypad) | A password-protected safe that uses a keypad, LCD, servo lock, LEDs, and an alarm system. |
