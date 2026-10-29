@@ -1,4 +1,4 @@
-<h1 align="center">Arduino-Tinkercad-Projects</h1>
+<h1 align="center">Arduino Tinkercad Projects</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Total_Projects-14-blue" alt="Total Projects: 14">
