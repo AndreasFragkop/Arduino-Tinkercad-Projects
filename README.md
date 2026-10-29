@@ -1,4 +1,12 @@
-# Arduino-Tinkercad-Projects
+<h1 align="center">Arduino-Tinkercad-Projects</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Total_Projects-14-blue" alt="Total Projects: 14">
+  <img src="https://img.shields.io/badge/Beginner-4-brightgreen" alt="Beginner: 4">
+  <img src="https://img.shields.io/badge/Intermediate-8-orange" alt="Intermediate: 8">
+  <img src="https://img.shields.io/badge/Advanced-2-red" alt="Advanced: 2">
+  <img src="https://img.shields.io/github/last-commit/AndreasFragkop/Arduino-Tinkercad-Projects" alt="Last commit">
+</p>
 
 Hello everyone, in this repository I store all the Arduino projects that I create and simulate using [Tinkercad Circuits](https://www.tinkercad.com/circuits). These projects are designed to explore Arduino programming, electronics, and circuit design. This repository is aimed at students, hobbyists, and anyone who wants to learn Arduino through practical simulation projects.
 
