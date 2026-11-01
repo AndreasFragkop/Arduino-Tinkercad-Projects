@@ -1,0 +1,6 @@
+﻿Name,Quantity,Component
+"U1",1," Arduino Uno R3"
+"D1",1,"RCBG LED RGB"
+"Rpot1, Rpot2, Rpot3",3,"10 kΩ Potentiometer"
+"R1, R2, R3",3,"220 Ω Resistor"
+"1",1," Breadboard Small"

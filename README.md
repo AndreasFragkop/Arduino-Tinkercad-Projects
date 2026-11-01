@@ -1,8 +1,10 @@
 <h1 align="center">Arduino Tinkercad Projects</h1>
 
+<h3 align="center">Stats:</h3>
+
 <p align="center">
-  <img src="https://img.shields.io/badge/Total_Projects-14-blue" alt="Total Projects: 14">
-  <img src="https://img.shields.io/badge/Beginner-4-brightgreen" alt="Beginner: 4">
+  <img src="https://img.shields.io/badge/Total_Projects-15-blue" alt="Total Projects: 15">
+  <img src="https://img.shields.io/badge/Beginner-5-brightgreen" alt="Beginner: 5">
   <img src="https://img.shields.io/badge/Intermediate-8-orange" alt="Intermediate: 8">
   <img src="https://img.shields.io/badge/Advanced-2-red" alt="Advanced: 2">
   <img src="https://img.shields.io/github/last-commit/AndreasFragkop/Arduino-Tinkercad-Projects" alt="Last commit">
@@ -45,6 +47,7 @@ This repository contains multiple Arduino projects, each organized in its own fo
 | [Multi-Tasking LED Controller](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/Multi-Tasking%20LED%20Controller) | A circuit that blinks a blue LED automatically while a push button independently controls a green LED. |
 | [Parking Sensor](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/Parking%20Sensor) | A parking assistance system that uses an ultrasonic sensor, LEDs, and a buzzer to indicate the distance to nearby objects. |
 | [Push Button LED Controller](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/Push%20Button%20LED%20Controller) | A simple circuit where a push button controls the turning on and off of an LED. |
+| [RGB Color Mixer](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/RGB%20Color%20Mixer) | An RGB LED colour mixer that uses three potentiometers to adjust red, green, and blue brightness independently. |
 | [Smart Night Light](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/Smart%20Night%20Light) | An automatic lighting system that uses a photoresistor to turn an LED on in dark conditions and off in brighter conditions. |
 | [Solar Tracking System Using LDR Sensors](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/Solar%20Tracking%20System%20Using%20LDR%20Sensors) | A simple system that uses LDR sensors to detect and follow the strongest light source. |
 | [Traffic Light Simulator](https://github.com/AndreasFragkop/Arduino-Tinkercad-Projects/tree/main/Traffic%20Light%20Simulator) | A traffic light simulation that cycles through red, green, and yellow LEDs at timed intervals. |
