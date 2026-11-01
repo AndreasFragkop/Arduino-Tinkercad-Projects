@@ -34,6 +34,17 @@ This repository contains multiple Arduino projects, each organized in its own fo
 
 ---
 
+## 🚀 Getting Started
+
+1. **Create a Tinkercad account.** Visit [Tinkercad](https://www.tinkercad.com/) and sign up for a free account.
+2. **Explore the projects.** Go to the [Project List](#-project-list), browse the available projects, and choose one that interests you.
+3. **Open a project.** When you find a project that interests you, click its name to open its folder and view the project files.
+4. **Review the project files.** Read the project README and inspect the code, component list, circuit image, and schematic to understand how the project works and how its components are connected.
+5. **Create a circuit in Tinkercad.** Return to [Tinkercad](https://www.tinkercad.com/), create a new project, choose **Circuits**, and give it the name of your chosen project.
+6. **Start building.** Add the required components and connect them using the circuit image and schematic as guides. Copy the code from `code.ino` into the text code editor, then start the simulation to see your project in action.
+
+---
+
 ## 📂 Project List
 
 > If you like a project, click its name to view the complete project and learn more.
