@@ -10,6 +10,10 @@
   <img src="https://img.shields.io/github/last-commit/AndreasFragkop/Arduino-Tinkercad-Projects" alt="Last commit">
 </p>
 
+<p align="center">
+  <strong>Latest project:</strong> <a href="RGB%20Color%20Mixer">RGB Color Mixer</a>
+</p>
+
 Hello everyone, in this repository I store all the Arduino projects that I create and simulate using [Tinkercad Circuits](https://www.tinkercad.com/circuits). These projects are designed to explore Arduino programming, electronics, and circuit design. This repository is aimed at students, hobbyists, and anyone who wants to learn Arduino through practical simulation projects.
 
 ![Arduino Uno](Logo.Webp)
