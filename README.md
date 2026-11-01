@@ -3,11 +3,11 @@
 <h3 align="center">Stats:</h3>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Total_Projects-15-blue" alt="Total Projects: 15">
-  <img src="https://img.shields.io/badge/Beginner-5-brightgreen" alt="Beginner: 5">
-  <img src="https://img.shields.io/badge/Intermediate-8-orange" alt="Intermediate: 8">
-  <img src="https://img.shields.io/badge/Advanced-2-red" alt="Advanced: 2">
-  <img src="https://img.shields.io/github/last-commit/AndreasFragkop/Arduino-Tinkercad-Projects" alt="Last commit">
+  <img src="https://img.shields.io/badge/Total_Projects-15-blue?style=for-the-badge" alt="Total Projects: 15">
+  <img src="https://img.shields.io/badge/Beginner-5-brightgreen?style=for-the-badge" alt="Beginner: 5">
+  <img src="https://img.shields.io/badge/Intermediate-8-orange?style=for-the-badge" alt="Intermediate: 8">
+  <img src="https://img.shields.io/badge/Advanced-2-red?style=for-the-badge" alt="Advanced: 2">
+  <img src="https://img.shields.io/github/last-commit/AndreasFragkop/Arduino-Tinkercad-Projects?style=for-the-badge" alt="Last commit">
 </p>
 
 <p align="center">

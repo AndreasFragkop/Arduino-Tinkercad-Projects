@@ -1,7 +1,7 @@
 # Digital Clock
 
-![Difficulty: Advanced](https://img.shields.io/badge/Difficulty-Advanced-red)
-![Board: Arduino Uno](https://img.shields.io/badge/Board-Arduino%20Uno-00979D?logo=arduino&logoColor=white)
+![Difficulty: Advanced](https://img.shields.io/badge/Difficulty-Advanced-red?style=for-the-badge)
+![Board: Arduino Uno](https://img.shields.io/badge/Board-Arduino%20Uno-00979D?logo=arduino&logoColor=white&style=for-the-badge)
 
 ## Overview
 
